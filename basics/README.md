@@ -1,7 +1,5 @@
 # PHP Basics
 
-## Watch the video on youtube [here](https://youtu.be/S336mLBaVpQ?si=Nv_NvKsUDEOHALTY)
-
 ## What is PHP?
 
 PHP is an acronym for "PHP: Hypertext Preprocessor, and is a widely-used, beginners-friendly, server-side programming language. Also a powerful tool for making dynamic and interactive Web pages.
@@ -11,8 +9,8 @@ PHP is an acronym for "PHP: Hypertext Preprocessor, and is a widely-used, beginn
 ```php
 // this is a single-line comment
 # this is a single-line comment too
-/* 
-    this is a 
+/*
+    this is a
     multi-line
     comment
 */
@@ -21,7 +19,8 @@ PHP is an acronym for "PHP: Hypertext Preprocessor, and is a widely-used, beginn
 ## Syntax
 
 PHP script can be placed anywhere in the document, and starts with `<?php` and ends with `?>`
->All PHP statements end with a semi-colon `;`
+
+> All PHP statements end with a semi-colon `;`
 
 ```php
 <?php
@@ -34,10 +33,10 @@ PHP script can be placed anywhere in the document, and starts with `<?php` and e
 
 ## Output data
 
-- Using `echo`: Can output multiple values
-- Using `print`: Takes only one value/argument
-- Using `print_r()`: Takes only one value/argument or arrays
-- Using `var_dump()`: Returns the data value, type and/or length
+-   Using `echo`: Can output multiple values
+-   Using `print`: Takes only one value/argument
+-   Using `print_r()`: Takes only one value/argument or arrays
+-   Using `var_dump()`: Returns the data value, type and/or length
 
 ```php
     echo 'hi', 30; // hi30
@@ -52,12 +51,12 @@ Variables are containers for storing data. PHP variables start with the `$` sign
 
 Naming rules:
 
-- A variable name must start with a letter or a underscore
-- A variable name cannot start with a number
-- A variable name can only contain letters, numbers and underscore
-- Variable names are case-sensitive (`$age` and `$AGE` are two different variables)
+-   A variable name must start with a letter or a underscore
+-   A variable name cannot start with a number
+-   A variable name can only contain letters, numbers and underscore
+-   Variable names are case-sensitive (`$age` and `$AGE` are two different variables)
 
->NOTE: In PHP, keywords (like: `if`, `else`, `echo`,...), class names, and function names are **not** case-sensitive
+> NOTE: In PHP, keywords (like: `if`, `else`, `echo`,...), class names, and function names are **not** case-sensitive
 
 ```php
 <?php
@@ -72,9 +71,9 @@ Naming rules:
 
 PHP has three variable scopes:
 
-- local: Declared inside a block
-- global: Declared outside a block of code, and can be accessed with `global` keyword from withing blocks
-- static: Declared local and will not deleted afterwards
+-   local: Declared inside a block
+-   global: Declared outside a block of code, and can be accessed with `global` keyword from withing blocks
+-   static: Declared local and will not deleted afterwards
 
 ## Data types
 
@@ -175,7 +174,7 @@ Define constants using the `define` function or `const` keyword. The 1st argumen
     $num -= 3; // num is now 3
     $num *= 5; // num is now 15
     $num /= 3; // num is now 5
-    $num %= 3; // num is now 2 
+    $num %= 3; // num is now 2
 ```
 
 ### Comparison operators
@@ -222,20 +221,20 @@ Simple arrays where indexes are auto generated starting at 0
     $arr = ['foo', 'bar']; // using the short array syntax
 
     print_r($arr) // Array ( [0] => foo [1] => bar )
-    echo $arr[0]; // foo 
-    echo $arr[1]; // bar 
+    echo $arr[0]; // foo
+    echo $arr[1]; // bar
 ```
 
 Associative arrays where indexes are declared manually
 
 ```php
-    $arr = array('foo' => 'bar', 'name' => 'Jon'); 
+    $arr = array('foo' => 'bar', 'name' => 'Jon');
     print_r($arr); // Array ( [foo] => bar [name] => Jon )
-    echo $arr['foo']; // bar 
+    echo $arr['foo']; // bar
 
     $arr2 = [1 => 'foo', 2 => 'bar'];
     print_r($arr2); // Array ( [1] => foo [2] => bar )
-    echo $arr2[1]; // foo 
+    echo $arr2[1]; // foo
 ```
 
 Multi-dimension arrays which arrays inside arrays
@@ -273,7 +272,7 @@ Multi-dimension arrays which arrays inside arrays
 
     // Add to the end of an array | syntax: array_push(array, value1, value2, ...)
     array_push($nums, 12, 14); // $nums = [2,4,6,8,10,12,14];
-    
+
     // Add to the beginning of an array | syntax: array_unshift(array, value1, value2, ...)
     array_unshift($nums, 0, 1); // $nums = [0,1,2,4,6,8,10,12,14];
 
@@ -308,11 +307,11 @@ Multi-dimension arrays which arrays inside arrays
 
 ```php
     if (condition) {
-        // This block of code will be executed if the condition is true 
+        // This block of code will be executed if the condition is true
     } else if (condition) {
-        // This block of code will be executed if the condition in "if" block is false and the "else if" condition is true 
+        // This block of code will be executed if the condition in "if" block is false and the "else if" condition is true
     } else {
-        // This block of code will be executed if all the 
+        // This block of code will be executed if all the
     }
 ```
 
@@ -472,7 +471,7 @@ Multi-dimension arrays which arrays inside arrays
 
 ## Functions
 
-A function declaration starts with the keyword `function`, followed by the name, and it must start with a letter or an underscore. *Function names are NOT case-sensitive*.
+A function declaration starts with the keyword `function`, followed by the name, and it must start with a letter or an underscore. _Function names are NOT case-sensitive_.
 
 ### Functions scope
 
@@ -484,14 +483,14 @@ Functions have their own scope
     function greet() {
         $user = $name; // $name is not defined
         global $name; // To access global variables, use 'global' keyword
-        echo 'Hello ' . $name; 
+        echo 'Hello ' . $name;
     }
 
     function sayHi() {
         $msg = 'Hello World!'; // Only accessible inside this function
     }
 
-    echo $msg; // ERROR: $msg is not defined 
+    echo $msg; // ERROR: $msg is not defined
 ```
 
 ### Simple function
@@ -547,10 +546,10 @@ Functions have their own scope
 
 ### Functions with unknown number of parameters
 
-- Sometimes we don't know how many arguments will be passed into a function.
-- We can use three dots `...` before the variable name to accept as many arguments as the user passes.
-- The arguments will be stored in an array.
-- The `...` operator must the last parameter in parameters list when declaring a function
+-   Sometimes we don't know how many arguments will be passed into a function.
+-   We can use three dots `...` before the variable name to accept as many arguments as the user passes.
+-   The arguments will be stored in an array.
+-   The `...` operator must the last parameter in parameters list when declaring a function
 
 ```php
     // Function declaration
@@ -563,7 +562,7 @@ Functions have their own scope
     }
 
     // Function execution
-    $sum = addNums(2,3,5,10); // $sum = 20 
+    $sum = addNums(2,3,5,10); // $sum = 20
     echo addNums(6,4); // 10
 
 
