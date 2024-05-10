@@ -1,7 +1,7 @@
 <?php
 require('../includes/db_connect.php');
 
-$query = "SELECT * FROM crud";
+$query = "SELECT * FROM crud ORDER BY id DESC";
 $result = mysqli_query($con, $query);
 if($result) {
     $data = array();

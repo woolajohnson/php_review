@@ -1,0 +1,11 @@
+1. Fetch All records after document ready.
+- use Ajax to retrieve all records, get the response and append it to the tbody.
+2. Inseret User
+- open modal, use Ajax to send user input, in php insert the input to the db and send back a response if success or not. Close the modal and Invoke Fetch records again.
+3. Delete a User
+- use Ajax to delete a user base on the data-id attr which the userId is attach to it.
+4. Edit User Info
+- open a modal, retrieve the record of the specific id from data-id attr
+- change the input value to the data receive from php.
+5. Update User Info
+- After editing, you can click save button to use ajax and send the input values to php and update the record.

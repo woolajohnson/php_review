@@ -5,7 +5,7 @@ $(document).ready(function () {
         insertData();
     });
 
-    // Insert Data
+    // Insert User
 
     function insertData() {
         let name = $("#name").val();
@@ -45,7 +45,7 @@ $(document).ready(function () {
         });
     }
 
-    // Fetch Data From DB
+    // Fetch All Data From DB
 
     function fetchDataTable() {
         $("#tableData").empty();
@@ -61,7 +61,7 @@ $(document).ready(function () {
                             <td>${value["email"]}</td>
                             <td>${value["number"]}</td>
                             <td>
-                                <button id="btn-edit" class="btn btn-info" data-id="${value.id}">Edit</button>
+                                <button id="btn-edit" class="btn btn-info" data-id="${value.id}" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
                                 <button id="btn-delete" class="btn btn-danger" data-id="${value.id}">Delete</button>
                             </td>
                         </tr>
@@ -74,7 +74,7 @@ $(document).ready(function () {
         });
     }
 
-    //Delete Record
+    //Delete Single Record
 
     $(document).on("click", "#btn-delete", function () {
         let userId = $(this).data("id");
@@ -100,18 +100,53 @@ $(document).ready(function () {
         });
     });
 
-    //Edit Record
+    //Edit Single Record
 
     $(document).on("click", "#btn-edit", function () {
-        let userId = $(this).data("id");
+        let userId = $(this).attr("data-id");
         $.ajax({
             url: "functions/fetchSingle.php",
             type: "POST",
+            dataType: "json",
             data: {
                 userId: userId,
             },
             success: function (data) {
-                console.log(data);
+                $("#editName").val(data.name);
+                $("#editEmail").val(data.email);
+                $("#editNumber").val(data.number);
+                $("#btn-update").removeAttr("data-id").attr("data-id", data.id);
+            },
+        });
+    });
+
+    //Update Single Record
+
+    $(document).on("click", "#btn-update", function () {
+        let userId = $(this).attr("data-id");
+        let updateName = $("#editName").val();
+        let updateEmail = $("#editEmail").val();
+        let updateNumber = $("#editNumber").val();
+
+        $.ajax({
+            url: "functions/update.php",
+            type: "POST",
+            dataType: "html",
+            data: {
+                userId: userId,
+                updateName: updateName,
+                updateEmail: updateEmail,
+                updateNumber: updateNumber,
+            },
+            success: function (data) {
+                $("#editModal").modal("hide");
+                $(".message").empty();
+                $(".message").append(data);
+                fetchDataTable();
+
+                setTimeout(function () {
+                    $(".message").empty();
+                }, 3000);
             },
         });
     });

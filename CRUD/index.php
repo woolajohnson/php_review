@@ -32,6 +32,40 @@
             </div>
         </div>
 
+        <!-- Edit Modal -->
+        <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="" method="POST" id="insertUser">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit User Info</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="editName" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="editName" aria-describedby="nameHelp">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editEmail" class="form-label">Email address</label>
+                                    <input type="text" class="form-control" id="editEmail" aria-describedby="emailHelp">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editNumber" class="form-label">Phone number</label>
+                                    <input type="text" class="form-control" id="editNumber" aria-describedby="numberHelp">
+                                </div>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="btn-update" class="btn btn-dark">Save</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End Edit Modal -->
+
         <!-- Main -->
         <main class="container">
             <h1 class="text-dark text-center my-3">PHP CRUD with AJAX!</h1>
